@@ -24,12 +24,12 @@
 | name                      | string     | null: false                     |
 | info                      | text       | null: false                     |
 | price                     | integer    | null: false                     |
-| category\_id              | integer    | null: false                     |
-| status\_id                | integer    | null: false                     |
-| shipping\_fee\_status\_id | integer    | null: false                     |
-| prefecture\_id            | integer    | null: false                     |
-| scheduled\_delivery\_id   | integer    | null: false                     |
-| user                      | references | null: false, foreign\_key: true |
+| category_id               | integer    | null: false                     |
+| status_id                 | integer    | null: false                     |
+| shipping_fee_status_id    | integer    | null: false                     |
+| prefecture_id             | integer    | null: false                     |
+| scheduled_delivery_id     | integer    | null: false                     |
+| user                      | references | null: false, foreign_key: true  |
 
 #### Association
 - belongs_to :user
@@ -51,13 +51,13 @@
 
 | Column         | Type       | Options                         |
 | -------------- | ---------- | ------------------------------- |
-| postal\_code   | string     | null: false                     |
-| prefecture\_id | integer    | null: false                     |
+| postal_code    | string     | null: false                     |
+| prefecture_id  | integer    | null: false                     |
 | city           | string     | null: false                     |
 | address        | string     | null: false                     |
 | building       | string     |                                 |
-| phone\_number  | string     | null: false                     |
-| order          | references | null: false, foreign\_key: true |
+| phone_number   | string     | null: false                     |
+| order          | references | null: false, foreign _key: true |
 
 #### Association
 - belongs_to :order
