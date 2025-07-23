@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <% if controller_name == "sessions" %>
     <%= stylesheet_link_tag "user/login", media: "all", "data-turbo-track": "reload" %>
   <% elsif controller_name == "registrations" %>
     <%= stylesheet_link_tag "user/registrations", media: "all", "data-turbo-track": "reload" %>
   <% end %>
+  <%= stylesheet_link_tag "shared/second-footer", media: "all", "data-turbo-track": "reload" %>
+
 
   <%= javascript_importmap_tags %>
 </head>

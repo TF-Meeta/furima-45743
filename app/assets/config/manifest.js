@@ -5,3 +5,4 @@
 //= link application.css
 //= link user/login.css
 //= link user/registrations.css
+//= link shared/second-footer.css
