@@ -5,7 +5,14 @@
     <div class="form-header">
       <h1 class="form-header-text">会員情報入力</h1>
     </div>
-
+    <% if alert %>
+      <div class="error-alert">
+        <ul class="error-message">
+          <li><%= alert %></li>
+        </ul>
+      </div>
+    <% end %>
+    
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -81,23 +88,28 @@
           <%= f.label :birth_date, "生年月日", class: "form-text" %>
           <span class="indispensable">必須</span>
         </div>
-        <div class="input-birth-wrap">
-          <%= select_year(nil, start_year: 1900, end_year: Date.today.year, field_name: 'birth_date(1i)', prompt: '--') %>
-            <p>年</p>
-          <%= select_month(nil, field_name: 'birth_date(2i)', prompt: '--') %>
-            <p>月</p>
-          <%= select_day(nil, field_name: 'birth_date(3i)', prompt: '--') %>
-            <p>日</p>
-        </div>
-        <p class="info-text">※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
+      <div class="input-birth-wrap">
+          <div class="birth-select">
+            <%= select_year(f.object.birth_date, { start_year: 1900, end_year: Date.today.year, prompt: '年' }, { name: "user[birth_date(1i)]" }) %>
+          </div>
+
+          <div class="birth-select">
+            <%= select_month(f.object.birth_date, { prompt: '月' }, { name: "user[birth_date(2i)]" }) %>
+          </div>
+
+          <div class="birth-select">
+            <%= select_day(f.object.birth_date, { prompt: '日' }, { name: "user[birth_date(3i)]" }) %>
+          </div>
+
       </div>
+        <p class="info-text">※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
       <div class="form-group">
         <p class="form-bottom-text">
           「会員登録」のボタンを押すことにより、
           <span>利用規約</span>
           に同意したものとみなします
       </div>
-
+    </div>
 
       <div class="actions register-btn">
         <%= f.submit "会員登録",class:"register-red-btn" %>

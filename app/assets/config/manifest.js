@@ -6,3 +6,4 @@
 //= link user/login.css
 //= link user/registrations.css
 //= link shared/second-footer.css
+//= link shared/error_messages.css

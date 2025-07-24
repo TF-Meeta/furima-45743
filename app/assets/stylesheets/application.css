@@ -13,4 +13,5 @@
  *= require_tree .
  *= require_self
  *= require shared/second-footer
+ *= require shared/error_messages
  */
