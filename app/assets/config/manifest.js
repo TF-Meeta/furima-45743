@@ -3,3 +3,7 @@
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 //= link application.css
+//= link user/login.css
+//= link user/registrations.css
+//= link shared/second-footer.css
+//= link shared/error_messages.css

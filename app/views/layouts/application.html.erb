@@ -6,11 +6,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <% if controller_name == "sessions" %>
+      <%= stylesheet_link_tag "user/login", media: "all", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "shared/error_messages", media: "all", "data-turbo-track": "reload" %>
+
+    <% elsif controller_name == "registrations" %>
+      <%= stylesheet_link_tag "user/registrations", media: "all", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "shared/error_messages", media: "all", "data-turbo-track": "reload" %>
+    <% end %>
+
   <%= javascript_importmap_tags %>
 </head>
 
 <body>
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+
+  <%# if alert %>
+   <%#p class="alert"><%= alert %>
+  <%# end %>
   <%= yield %>
 </body>
 
