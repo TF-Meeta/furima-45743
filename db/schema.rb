@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_29_030507) do
     t.text "info"
     t.integer "category_id"
     t.integer "sales_status_id"
-    t.integer "shipping_fee_status_id"
+    t.integer "shipping_fee_id"
     t.integer "prefecture_id"
     t.integer "scheduled_delivery_id"
     t.integer "price"
