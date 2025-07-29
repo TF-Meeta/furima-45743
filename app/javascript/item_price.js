@@ -1,5 +1,4 @@
 const price = () => {
-  console.log("item_price.js loaded (price function)");
 
   const priceInput = document.getElementById("item-price");
   const taxOutput = document.getElementById("add-tax-price");
