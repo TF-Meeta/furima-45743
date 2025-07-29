@@ -90,6 +90,36 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
+
+      it 'カテゴリーが空だと出品できない' do
+        @item.category_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+
+      it '商品の状態が空だと出品できない' do
+        @item.condition_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
+      end
+
+      it '配送料の負担が空だと出品できない' do
+        @item.shipping_fee_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping fee can't be blank")
+      end
+
+      it '発送元の地域が空だと出品できない' do
+        @item.prefecture_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+      end
+
+      it '発送までの日数が空だと出品できない' do
+        @item.scheduled_delivery_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Scheduled delivery can't be blank")
+      end
     end
   end
 end

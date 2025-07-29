@@ -1,13 +1,13 @@
-document.addEventListener("turbo:load", () => {
+const price = () => {
+  console.log("item_price.js loaded (price function)");
+
   const priceInput = document.getElementById("item-price");
   const taxOutput = document.getElementById("add-tax-price");
   const profitOutput = document.getElementById("profit");
 
   if (!priceInput) return;
 
-  priceInput.addEventListener("input", () => {
-    const price = parseInt(priceInput.value);
-
+  const updatePriceInfo = (price) => {
     if (isNaN(price) || price < 300 || price > 9999999) {
       taxOutput.innerHTML = '';
       profitOutput.innerHTML = '';
@@ -19,5 +19,16 @@ document.addEventListener("turbo:load", () => {
 
     taxOutput.innerHTML = tax;
     profitOutput.innerHTML = profit;
+  };
+
+  priceInput.addEventListener("input", () => {
+    const price = parseInt(priceInput.value);
+    updatePriceInfo(price);
   });
-});
+
+  const prefilledPrice = parseInt(priceInput.value);
+  updatePriceInfo(prefilledPrice);
+};
+
+window.addEventListener("turbo:load", price);
+window.addEventListener("turbo:render", price);
