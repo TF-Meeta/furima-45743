@@ -6,15 +6,8 @@ class OrdersController < ApplicationController
   before_action :redirect_if_invalid
 
   def index
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
-
-    if current_user.nil?
-      redirect_to new_user_session_path
-    elsif current_user.id == @item.user_id || @item.order.present?
-      redirect_to root_path
-    end
   end
 
   def create
