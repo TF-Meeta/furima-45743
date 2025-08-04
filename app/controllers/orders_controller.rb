@@ -6,9 +6,15 @@ class OrdersController < ApplicationController
   before_action :redirect_if_invalid
 
   def index
-    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
+    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
+
+    if current_user.nil?
+      redirect_to new_user_session_path
+    elsif current_user.id == @item.user_id || @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -18,6 +24,7 @@ class OrdersController < ApplicationController
       @order_address.save
       redirect_to root_path
     else
+      gon.public_key = ENV['PAYJP_PUBLIC_KEY']
       render :index, status: :unprocessable_entity
     end
   end

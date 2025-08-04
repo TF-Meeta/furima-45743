@@ -80,8 +80,9 @@
 }
 
 .detail-table {
+  margin: 0 auto;
   margin-bottom: 30px;
-  width: 100%;
+  width: 40%;
 }
 
 .detail-item {
