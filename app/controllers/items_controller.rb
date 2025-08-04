@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def redirect_unauthorized_user
-    redirect_to root_path if current_user != @item.user
+    redirect_to root_path if current_user != @item.user || @item.order.present?
   end
 
   def item_params
