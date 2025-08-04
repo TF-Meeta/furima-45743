@@ -1,0 +1,44 @@
+const pay = () => {
+  const form = document.getElementById('charge-form');
+  if (!form) return;
+
+  if (document.getElementById("number-form").childElementCount > 0) return;
+
+
+  const publicKey = gon.public_key;
+  const payjp = Payjp(publicKey);
+
+  const elements = payjp.elements();
+  const numberElement = elements.create('cardNumber');
+  const expiryElement = elements.create('cardExpiry');
+  const cvcElement = elements.create('cardCvc');
+
+  numberElement.mount('#number-form');
+  expiryElement.mount('#expiry-form');
+  cvcElement.mount('#cvc-form');
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    payjp.createToken(numberElement).then((response) => {
+      if (response.error) {
+        alert(response.error.message);
+        return;
+      }
+
+      const token = response.id;
+      const tokenObj = `<input value="${token}" name='token' type="hidden">`;
+      form.insertAdjacentHTML("beforeend", tokenObj);
+
+      numberElement.clear();
+      expiryElement.clear();
+      cvcElement.clear();
+
+      form.submit();
+    });
+  });
+};
+
+document.addEventListener("turbo:load", pay);
+document.addEventListener("turbo:render", pay);
+document.addEventListener("DOMContentLoaded", pay);
