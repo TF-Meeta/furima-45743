@@ -80,9 +80,25 @@
 }
 
 .detail-table {
-  margin: 0 auto;
   margin-bottom: 30px;
-  width: 40%;
+  width: 70%;
+  min-width: 600px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.detail-table th,
+.detail-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.detail-table th {
+  background-color: #f0f0f0;
+  width: 30%;
+  text-align: left;
 }
 
 .detail-item {
@@ -91,6 +107,11 @@
   border: 1px solid #dedede;
   font-size: 14px;
   text-align: center;
+}
+.item-detail-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .detail-value {
