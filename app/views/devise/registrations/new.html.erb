@@ -94,7 +94,7 @@
           </div>
 
           <div class="birth-select">
-            <%= select_month(f.object.birth_date, { prompt: '月' }, { name: "user[birth_date(2i)]" }) %>
+            <%= select_tag "user[birth_date(2i)]", options_for_select((1..12).map { |m| ["#{m}月", m] }, f.object.birth_date&.month), prompt: '月', class: "select-box" %>
           </div>
 
           <div class="birth-select">

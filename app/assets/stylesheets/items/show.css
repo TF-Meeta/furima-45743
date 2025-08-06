@@ -166,7 +166,7 @@
 .comment-box {
   width: 40vw;
   background-color: #fff;
-  margin: 5vh 0;
+  margin: 5vh auto;
   text-align: center;
 }
 
@@ -182,7 +182,7 @@
   padding: 10px;
   font-size: 14px;
   margin: 10px 0px;
-  text-align: left;
+  text-align: center;
 }
 
 .comment-btn {
@@ -208,12 +208,14 @@
 
 .links {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 50vw;
-
+  gap: 40px;
+  margin: 20px auto;
 }
 
 .change-item-btn {
+  display: inline-block;
   font-size: 30px;
   text-decoration: none;
   color: #3CCACE;
@@ -221,7 +223,8 @@
 
 .another-item {
   display: block;
-  margin: 30px 0px 8px;
+  text-align: center;
+  margin: 30px auto 8px;
   color: #3CCACE;
   text-decoration: none;
   font-weight: bold;

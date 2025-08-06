@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <% if controller_name == "sessions" %>
       <%= stylesheet_link_tag "user/login", media: "all", "data-turbo-track": "reload" %>
     <% elsif controller_name == "registrations" %>
