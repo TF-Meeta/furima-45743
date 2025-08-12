@@ -90,3 +90,5 @@ gem 'active_hash'
 gem 'gon'
 
 gem 'payjp'
+
+gem "nokogiri", force_ruby_platform: true
